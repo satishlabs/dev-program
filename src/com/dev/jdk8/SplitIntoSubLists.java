@@ -11,6 +11,7 @@ public class SplitIntoSubLists {
         var k = 4;
         var l = splitIntoSubLists(list, k);
         System.out.println(l);
+        //Test
     }
 
     private static List<List<Integer>> splitIntoSubLists(List<Integer> list, int k) {

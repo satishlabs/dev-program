@@ -17,12 +17,14 @@ public class ReverseSentence {
         }
 
     }
-    public static String str4="";
-    private static String reverse(String str) {
-        String[] str3 = str.split(" ");
-        for(int i=str3.length-1; i>=0; i--){
-            str4=str4+" "+str3[i];
-        }
-        return str4;
-    }
+            public static String str4="";
+            private static String reverse(String str) {
+                String[] str3 = str.split(" ");
+                for(int i=str3.length-1; i>=0; i--){
+                    str4=str4+" "+str3[i];
+                }
+                return str4;
+            }
+
+    //write the test cases for above class
 }
