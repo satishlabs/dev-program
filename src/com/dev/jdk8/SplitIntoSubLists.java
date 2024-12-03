@@ -32,5 +32,4 @@ public class SplitIntoSubLists {
         return result;
     }
 
-
 }
