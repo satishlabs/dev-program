@@ -1,4 +1,4 @@
-package com.dev.arr.test;
+package com.dev.arr;
 
 public class FibonacciNumber {
     public static void main(String[] args) {
