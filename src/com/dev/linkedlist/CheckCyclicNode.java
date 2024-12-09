@@ -34,7 +34,7 @@ public static void main(String[] args) {
             // Print result
             System.out.println("List has cycle: " + hasCycle);
 
-            // Print nodes in cycle
+            // Print nodes in cyc\
             if(hasCycle) {
                 Node slow = head;
                 Node fast = head;
