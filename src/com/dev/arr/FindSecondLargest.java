@@ -28,6 +28,11 @@ private static int findSecondLargest(int[] arr) {
             }
         }
 
+        // Check if second largest was found
+        if (secondLargest == Integer.MIN_VALUE) {
+            return -1;
+        }
+
         return secondLargest;
     }
 }
