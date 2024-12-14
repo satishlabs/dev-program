@@ -2,8 +2,9 @@ package com.dev.arr;
 
 public class MaxSumSubArray {
     public static void main(String[] args) {
-        int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
+       // int arr[] = {-2,1,-3,4,-1,2,1,-5,4};
         //output: 4+(-1)+2+1=6
+        int arr[] = {12,5,3,10,2,4,6,20};
         int res = maxSumSubArray(arr);
         System.out.println(res);
     }

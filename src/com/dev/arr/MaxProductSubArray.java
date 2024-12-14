@@ -5,6 +5,7 @@ package com.dev.arr;
 public class MaxProductSubArray {
     public static void main(String[] args) {
         int arr[] = {5,-2,3,6,0,-2,-40};
+        //int arr[] = {10,5,-2,4,8,2};
         int res = maxProductSubArray(arr);
         System.out.println(res);
     }
