@@ -1,0 +1,31 @@
+10 Key points about volatile keyword >
+
+1. Java allows threads to access shared variables. As a rule, to ensure that shared variables are consistently updated, a thread should ensure that it has exclusive use of such variables by obtaining a lock that enforces mutual exclusion for those shared variables. We can ensure such behaviour by using volatile keyword.
+
+2. If a field is declared volatile, in that case the Java memory model ensures that all threads see a consistent value for the variable.
+
+3. Volatile can be used as a keyword against the variable, we cannot use volatile against method declaration.
+ volatile  void method2() //it’s illegal
+ volatile int i; //legal
+
+4. In certain cases, Volatile keyword can be used as an alternate to synchronization in java, as all threads always have access to latest updated value.
+
+5. Using volatile is better than synchronization, as synchronization needs to block whole method (if used in method declaration) or block (if synchronization block is used), while volatile needs not to block any piece of code.
+
+6. Not Cached in CPU- Volatile members are never cached in CPU by jvm, they are always read from main memory i.e. from stack where variable lives.
+It is possible for multiple CPU’s to exist on machine, so it is possibility that thread might cache different values in different CPU’s for same variable, so it’s important that value is not cached in CPU and always read from main memory.
+
+7. Volatile keyword must be used in multithreading environment, there is no use of using volatile keyword in non multi threading environment, it may cost us unnecessary performance issue as volatile keyword is not cached in memory by jvm.
+
+8. A compile-time error will occur if a final variable is declared volatile.
+
+	volatile final int x = 0; //The field x can be either final or volatile, not both. 
+
+
+9. If variable which has been declared volatile, is a reference to object it may point to null as well,
+ 
+  volatile Integer i=null;  //it’s allowed.
+
+
+       
+ 10. Performance issue - As volatile keyword is not cached in CPU, it is always read from main memory, so in terms of performance it’s always expensive to use volatile keyword. 
