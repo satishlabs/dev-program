@@ -1,5 +1,6 @@
 package com.str;
 
+//Reverse the expression: 2*50+3-10
 public class ReverseStringExpression {
     public static void main(String[] args) {
         String expression = "2*50+3-10";
