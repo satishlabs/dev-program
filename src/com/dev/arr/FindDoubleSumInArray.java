@@ -9,6 +9,25 @@ public class FindDoubleSumInArray {
         findAllPairs(arr, sum);
         System.out.println("-----------------");
         findAllPairsNumber(arr, sum);
+        System.out.println("-----------------");
+        findSumOfPairsNumber(arr, sum);
+
+    }
+
+    private static void findSumOfPairsNumber(int[] arr, int sum) {
+        int left = 0;
+        int right = arr.length-1;
+        while(left < right){
+            if (arr[left] + arr[right] == sum){
+                System.out.println("Sum found of " + arr[left] + " and " + arr[right]);
+                left++;
+                right--;
+            } else if (arr[left] + arr[right] < sum){
+                left++;
+            } else {
+                right--;
+            }
+        }
     }
 
     private static void findAllPairsNumber(int[] arr, int sum) {
