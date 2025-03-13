@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.eager;
+package com.devlabs.dp.singleton.eager;
 
 public class SingletonDoubleCheck {
 	private static volatile SingletonDoubleCheck instance;

@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.eager;
+package com.devlabs.dp.singleton.eager;
 
 public class Singleton {
 	private static final Singleton SINGLETON = new Singleton(); //instances created eagerly

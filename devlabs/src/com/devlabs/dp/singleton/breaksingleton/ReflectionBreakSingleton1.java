@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.breaksingleton;
+package com.devlabs.dp.singleton.breaksingleton;
 
 import java.lang.reflect.Constructor;
 

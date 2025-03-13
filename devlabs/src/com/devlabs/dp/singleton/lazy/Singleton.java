@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.lazy;
+package com.devlabs.dp.singleton.lazy;
 
 public class Singleton {
 	private static Singleton instance;

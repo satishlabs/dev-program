@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.breaksingleton;
+package com.devlabs.dp.singleton.breaksingleton;
 
 class SingletonWithCloneable implements Cloneable {
 	private static final SingletonWithCloneable instance = new SingletonWithCloneable();

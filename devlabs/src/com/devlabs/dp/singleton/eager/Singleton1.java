@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.eager;
+package com.devlabs.dp.singleton.eager;
 
 /*
  Uses synchronized to make it thread-safe.

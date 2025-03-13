@@ -1,4 +1,4 @@
-package com.devlabs.ds.singleton.breaksingleton;
+package com.devlabs.dp.singleton.breaksingleton;
 
 //Fix: Prevent Reflection using Enum or throw an exception in the constructor.
 public class FixSingleton {
