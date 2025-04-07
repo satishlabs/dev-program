@@ -1,10 +1,9 @@
 package com.devlabs.lru;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
+
 
 class LRUCacheLinkedHashMap extends LinkedHashMap<Integer, Integer> {
     private final int capacity;
@@ -80,25 +79,36 @@ class LRUCacheLinkedHashMap extends LinkedHashMap<Integer, Integer> {
 	
 	
 
-	@Override
-    public String toString() {
-        List<String> items = new ArrayList<>();
-        Node current = head.next;
-        while (current != tail) {
-            items.add(current.key + "=" + current.value);
-            current = current.next;
-        }
-        return "{" + String.join(", ", items) + "}";
-    }
+	 @Override
+	    public String toString() {
+	        StringBuilder sb = new StringBuilder();
+	        Node current = head.next;
+	        while (current != tail) {
+	            sb.append(current.key);
+	            if (current.next != tail) {
+	                sb.append("->");
+	            }
+	            current = current.next;
+	        }
+	        return sb.toString();
+	    }
 
     public static void main(String[] args) {
-    	LRUCacheLinkedHashMap cache = new LRUCacheLinkedHashMap(3);
-        cache.put(1, 100);
-        cache.put(2, 200);
-        cache.put(3, 300);
-        System.out.println(cache.get(1)); // 100 (Moves 1 to front)
-        cache.put(4, 400); // Removes LRU (key=2)
-        System.out.println(cache.get(2)); // -1 (Key 2 was removed)
+    	LRUCacheLinkedHashMap lruCache = new LRUCacheLinkedHashMap(3);
+    	 lruCache.put(1, 100);
+         System.out.println(lruCache);
+         lruCache.put(2, 200);
+         System.out.println(lruCache);
+         lruCache.put(3, 300);
+         System.out.println(lruCache); // ✅ Prints 3->2->1
+
+         lruCache.put(4, 400);
+         System.out.println(lruCache); // ✅ Prints 4->3->2
+
+         lruCache.put(5, 500);
+         System.out.println(lruCache); // ✅ Prints 5->4->3
+         lruCache.put(1, 600);
+         System.out.println(lruCache); 
     }
 }
 
