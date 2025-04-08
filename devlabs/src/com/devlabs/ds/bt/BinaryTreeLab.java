@@ -50,8 +50,8 @@ public class BinaryTreeLab {
 	private void preOrderRecursive(Node root) {
 		if(root != null) {
 			System.out.print(root.data+" ");
-			preOrderRecursive(root.right);
 			preOrderRecursive(root.left);
+			preOrderRecursive(root.right);
 		}
 		
 	}
