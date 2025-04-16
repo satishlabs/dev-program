@@ -7,16 +7,6 @@ class LRUCache {
     private final Map<Integer, Node> cache;
     private Node head, tail;
 
-    private static class Node {
-        int key, value;
-        Node prev, next;
-
-        Node(int k, int v) {
-            key = k;
-            value = v;
-        }
-    }
-
     public LRUCache(int capacity) {
         this.capacity = capacity;
         this.cache = new HashMap<>();
