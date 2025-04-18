@@ -68,5 +68,16 @@ public class GetThirdHighestEmpSalary {
 				System.out.println(e);
 			}
 		}
+		System.out.println("\n========================");
+		
+		empList.stream()
+        .map(Emp::getSalary)
+        .distinct()
+        .sorted(Comparator.reverseOrder())
+        .skip(2)
+        .findFirst()
+        .ifPresent(thirdHighestSal -> empList.stream().filter( e -> e.getSalary() == thirdHighest)
+        		.map(Emp::getName)
+        		.forEach(System.out::println));
 	}
 }
