@@ -1,5 +1,8 @@
 package com.devlabs.ds.bt;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class FindBTHeight {
 	static Node root;
 	public static void main(String[] args) {
@@ -17,6 +20,32 @@ public class FindBTHeight {
 		
 		// Output: 2 (if counting edges)
 		System.out.println("Height of tree: "+findHeight(root));
+		System.out.println("\n==================================");
+		System.out.println("Height of tree: "+findHeightBFS(root));
+	}
+	private static int findHeightBFS(Node root) {
+		if(root == null)
+			return -1;
+		
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+		int height = -1;
+		
+		while(!queue.isEmpty()) {
+			int size = queue.size();
+			height++;
+			
+			for(int i=0; i<size; i++) {
+				Node current = queue.poll();
+				
+				if(current.left != null)
+					queue.add(current.left);
+				if(current.right != null)
+					queue.add(current.right);
+			}
+		}
+		
+		return height;
 	}
 	private static int findHeight(Node root) {
 		// return 0 if counting nodes instead of edges
