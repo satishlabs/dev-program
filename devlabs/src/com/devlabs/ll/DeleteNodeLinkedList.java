@@ -38,7 +38,7 @@ public class DeleteNodeLinkedList {
 			System.out.println("Cannot delete the last node using this method.");
 			return;
 		}
-		 // Copy data from next node to current node
+		// Copy data from next node to current node
 		nodeToDelete.next = nodeToDelete.next.next;
 		nodeToDelete.next = nodeToDelete.next.next;
 
