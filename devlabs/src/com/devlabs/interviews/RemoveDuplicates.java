@@ -10,6 +10,28 @@ public class RemoveDuplicates {
 
         System.out.println("Original: " + input);
         System.out.println("Without duplicates: " + output);
+        
+        System.out.println("\n==========================");
+        String result = removeDuplicatesWithoutCollection(input);
+
+        System.out.println("Original: " + result);
+        System.out.println("Without duplicates: " + result);
+	}
+
+	private static String removeDuplicatesWithoutCollection(String input) {
+		if(input == null)
+			return null;
+		
+		StringBuilder sb = new StringBuilder();
+		boolean[] seen = new boolean[256]; //// Assuming ASCII
+		for(char ch : input.toCharArray()) {
+			if(!seen[ch]) {
+				seen[ch] = true;
+				sb.append(ch);
+			}
+		}
+		
+		return sb.toString();
 	}
 
 	private static String removeDuplicates(String input) {
