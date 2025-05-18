@@ -5,6 +5,14 @@ public class LongestUniqueSubstring {
 		String input = "abcabcbb";
 		int length = lengthOfLongestSubstring(input);
 		System.out.println("Length of Longest Substring Without Repeating Characters: " + length);
+		System.out.println("\n========================");
+		String result = getLongestUniqueSubstring(input);
+        System.out.println("Longest Substring Without Repeating Characters: \"" + result + "\"");
+	}
+
+	private static String getLongestUniqueSubstring(String input) {
+		
+		return null;
 	}
 
 	private static int lengthOfLongestSubstring(String input) {
