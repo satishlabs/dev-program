@@ -11,30 +11,56 @@ public class LongestUniqueSubstring {
 		System.out.println("\n========================");
 		String str = "абвгдabc😀🐱‍👤😀";
 		String result = getLongestUniqueSubstring(str);
-        System.out.println("Longest Substring Without Repeating Characters: \"" + result + "\"");
+		System.out.println("Longest Substring Without Repeating Characters: \"" + result + "\"");
+		System.out.println("\n========================");
+		input = "aAbBcCDeeF";
+		result = getLongestUniqueSubstringCaseInsenitive(input);
+		System.out.println("Case-Insensitive Longest Unique Substring: \"" + result + "\"");
+	}
+
+	public static String getLongestUniqueSubstringCaseInsenitive(String s) {
+		Map<Character, Integer> map = new HashMap<>();
+		int start = 0, maxStart = 0, maxLen = 0;
+
+		for (int end = 0; end < s.length(); end++) {
+			char ch = Character.toLowerCase(s.charAt(end));
+
+			if (map.containsKey(ch) && map.get(ch) >= start) {
+				start = map.get(ch) + 1;
+			}
+
+			map.put(ch, end);
+
+			if (end - start + 1 > maxLen) {
+				maxLen = end - start + 1;
+				maxStart = start;
+			}
+		}
+
+		return s.substring(maxStart, maxStart + maxLen);
 	}
 
 	public static String getLongestUniqueSubstring(String s) {
-        Map<Character, Integer> map = new HashMap<>();
-        int start = 0, maxStart = 0, maxLen = 0;
+		Map<Character, Integer> map = new HashMap<>();
+		int start = 0, maxStart = 0, maxLen = 0;
 
-        for (int end = 0; end < s.length(); end++) {
-            char ch = s.charAt(end);
+		for (int end = 0; end < s.length(); end++) {
+			char ch = s.charAt(end);
 
-            if (map.containsKey(ch) && map.get(ch) >= start) {
-                start = map.get(ch) + 1;
-            }
+			if (map.containsKey(ch) && map.get(ch) >= start) {
+				start = map.get(ch) + 1;
+			}
 
-            map.put(ch, end);
+			map.put(ch, end);
 
-            if (end - start + 1 > maxLen) {
-                maxLen = end - start + 1;
-                maxStart = start;
-            }
-        }
+			if (end - start + 1 > maxLen) {
+				maxLen = end - start + 1;
+				maxStart = start;
+			}
+		}
 
-        return s.substring(maxStart, maxStart + maxLen);
-    }
+		return s.substring(maxStart, maxStart + maxLen);
+	}
 
 	private static int lengthOfLongestSubstring(String input) {
 		int index[] = new int[256]; // ASCII character map
