@@ -1,19 +1,40 @@
 package com.devlabs.interviews;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestUniqueSubstring {
 	public static void main(String[] args) {
 		String input = "abcabcbb";
 		int length = lengthOfLongestSubstring(input);
 		System.out.println("Length of Longest Substring Without Repeating Characters: " + length);
 		System.out.println("\n========================");
-		String result = getLongestUniqueSubstring(input);
+		String str = "абвгдabc😀🐱‍👤😀";
+		String result = getLongestUniqueSubstring(str);
         System.out.println("Longest Substring Without Repeating Characters: \"" + result + "\"");
 	}
 
-	private static String getLongestUniqueSubstring(String input) {
-		
-		return null;
-	}
+	public static String getLongestUniqueSubstring(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        int start = 0, maxStart = 0, maxLen = 0;
+
+        for (int end = 0; end < s.length(); end++) {
+            char ch = s.charAt(end);
+
+            if (map.containsKey(ch) && map.get(ch) >= start) {
+                start = map.get(ch) + 1;
+            }
+
+            map.put(ch, end);
+
+            if (end - start + 1 > maxLen) {
+                maxLen = end - start + 1;
+                maxStart = start;
+            }
+        }
+
+        return s.substring(maxStart, maxStart + maxLen);
+    }
 
 	private static int lengthOfLongestSubstring(String input) {
 		int index[] = new int[256]; // ASCII character map
