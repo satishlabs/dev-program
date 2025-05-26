@@ -7,6 +7,21 @@ public class AtoiParserTest {
 		System.out.println(myAtoi("words and 987")); // 0
 		System.out.println(myAtoi("-91283472332")); // Integer.MIN_VALUE
 		System.out.println(myAtoi("+123")); // 123
+		
+		System.out.println("\n=========================");
+		 System.out.println(myAtoiRegexVersion("  +456 with extra"));  // 456
+	}
+
+	private static int myAtoiRegexVersion(String str) {
+		String trimed = str.trim();
+		if(trimed.isEmpty())
+			return 0;
+		String match = trimed.replaceFirst("^([+-]?\\d+).*", "$1");
+		try {
+			return Integer.parseInt(match);
+		}catch (NumberFormatException e) {
+			return match.startsWith("-") ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+		}
 	}
 
 	private static int myAtoi(String str) {
